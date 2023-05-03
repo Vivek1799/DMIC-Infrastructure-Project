@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+  </head>
+    <title>Your Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('ezgif.com-video-to-gif.gif');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        
+
+        .article {
+            position: relative;
+            top: 100vh; /* equal to the height of the banner */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: sans-serif;
+            line-height: 1.5;
+            font-size: 25px;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px #6e6e6e;
+        }
+        h1 {
+            font-size: 45px;
+            font-weight: bold;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            line-height: 1.5;
+            text-shadow: 2px 2px 4px #6e6e6e;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .white-section {
+  background-color: white;
+  font-family: sans-serif;
+  opacity: 0.7;
+  color: black;
+  text-shadow: none;
+  padding: 1rem;
+  max-width: 750px; /* Set the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a box-shadow for a more defined look */
+}
+        .new-background {
+            background-color: white;
+            
+        }
+        .scrolly-container{
+            position: relative
+            padding: 2rem;
+
+        }
+
+        .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
+  max-width: 100%;
+  height: auto;
+  opacity: none;
+}     
+.white-section2 {
+    background-color: white;
+    font-family: sans-serif;
+    opacity: none;
+    color: black;
+    text-shadow: none;
+    padding: 3rem;
+    max-width: 900px; /* Set the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+  
+   
+    }
+
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="article">
+        <h1>Bigger, Grander, Leaner. Inside India’s 100 Billion Dollar Infrastructure Project</h1>
+        <p>
+            In a bid to propel India's economic growth and strengthen its position on the global stage, the government has embarked on a colossal $100 billion infrastructure project: the Delhi-Mumbai Corridor.
+    </div>
+    </div>
+    
+    <div class="article white-section">
+        <p>
+            After the completion of the project, the corridor is expected to boost India's economic growth significantly. This massive undertaking will include the construction of new highways, railways, ports, and airports.
+        </p>
+        <p>
+            The Delhi-Mumbai Corridor is designed to enhance connectivity between the two major cities and to promote economic development in the surrounding regions. The project is expected to generate millions of jobs and attract private investment.
+        </p>
+        
+        <div class="container">
+            <img src="delhi-mumbai-expressway.jpeg" alt="Image description">
+          </div>
+
+        </div>  
+        
+        <div class="article ">
+
+            <p>
+                The Delhi-Mumbai Corridor is a massive infrastructure project that will connect the two major cities of India. The project is expected to cost $100 billion and will be completed by 2022.
+
+        </p>
+        
+
+        <div class="white-section2">
+            <p>
+                The Delhi-Mumbai Corridor is a massive infrastructure project that will connect the two major cities of India. The project is expected to cost $100 billion and will be completed by 2022.
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+            <script>
+      
+                //  scrollytelling code goes here
+                d3.select("#step2").on('stepin', function() {
+                  d3.select("img").attr("src", "image2.jpg")
+                })
+          
+                d3.select("#step3").on('stepin', function() {
+                  d3.select("img").attr("src", "image1.jpg")
+                })
+          
+                d3.select("#step4").on('stepin', function() {
+                  d3.select("img").attr("src", "image2.jpg")
+                })
+          
+              </script>
+          
+              <script>
+                const scroller = scrollama()
+          
+                scroller
+                  .setup({
+                    step: "#scrolly .steps-container .step",
+                    offset: 0.75,
+                    debug: true,
+                  })
+                  .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                  })
+                  .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepout", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                  })
+          
+                window.addEventListener("resize", scroller.resize)
+              </script>         
+</body>
+</html>
